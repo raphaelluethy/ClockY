@@ -7,29 +7,34 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
 
 export const authOptions: NextAuthOptions = {
-  // Configure one or more authentication providers
-  adapter: PrismaAdapter(prisma),
-  providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    // ...add more providers here
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        name: {
-          label: "Name",
-          type: "text",
-          placeholder: "Enter your name",
-        },
-      },
-      async authorize(credentials, _req) {
-        const user = { id: 1, name: credentials?.name ?? "J Smith" };
-        return user;
-      },
-    }),
-  ],
+	// Configure one or more authentication providers
+	adapter: PrismaAdapter(prisma),
+	providers: [
+		GithubProvider({
+			clientId: process.env.GITHUB_ID,
+			clientSecret: process.env.GITHUB_SECRET,
+		}),
+		// ...add more providers here
+		CredentialsProvider({
+			name: "Credentials",
+			credentials: {
+				name: {
+					label: "Name",
+					type: "text",
+					placeholder: "Enter your name",
+				},
+			},
+			async authorize(credentials, _req) {
+				const user = { id: 1, name: credentials?.name ?? "J Smith" };
+				return user;
+			},
+		}),
+	],
+	secret: "lbvjkvbwlbwveliuwbvliuwbvliwubvliuwev", // to be replaced
+	session: {
+		maxAge: 60 * 60 * 5, // 5 hrs, since maxAge must be < then expiryDate
+		strategy: "jwt",
+	},
 };
 
 export default NextAuth(authOptions);
