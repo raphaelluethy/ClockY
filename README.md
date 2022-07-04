@@ -2,7 +2,7 @@
 
 Author: raphaelluethy
 
-This is my attempt at building a full fledged webapp according to the newest standarts-
+This is my attempt at building a full fledged webapp according to the newest standarts.
 
 ## Build Tool
 
