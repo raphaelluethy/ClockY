@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { trpc } from "../utils/trpc";
-
+import { useSession } from "next-auth/react";
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from Clocky" }]);
+	const session = useSession();
 
 	return (
 		<>
@@ -26,6 +27,15 @@ const Home: NextPage = () => {
 					<h2 className="text-2xl text-center">Comming Soon...</h2>
 				</div>
 			</div>
+
+			{session ? (
+				<p className="text-center">
+					{" "}
+					You are logged in as {JSON.stringify(session?.data)}
+				</p>
+			) : (
+				<p className="text-center"> You are not logged in</p>
+			)}
 		</>
 	);
 };
