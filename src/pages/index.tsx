@@ -30,7 +30,7 @@ const Home: NextPage = () => {
 				</div>
 				<div className="py-6  text-slate-50">
 					{getAll.data ? (
-						<h2 className="text-4xl">
+						<h2 className="text-2xl">
 							Current Users: {getAll.data.length}
 						</h2>
 					) : (
