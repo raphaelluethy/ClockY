@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 				<title>ClockY</title>
 				<meta
 					name="description"
-					content="Another try to build a wepapp"
+					content="Another try to build a wepapp ¯\\_(ツ)_/¯"
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
