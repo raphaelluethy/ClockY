@@ -43,7 +43,7 @@ const Home: NextPage = () => {
 							You are logged in as {session.user?.email}
 						</p>
 						<button
-							className="bg-transparent hover:bg-slate-50 text-slate-50 font-semibold hover:text-slate-600 py-2 px-4 border border-slate-50 hover:border-transparent rounded my-4"
+							className="login-button my-4"
 							onClick={() => signOut()}
 						>
 							Sign out
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 				) : (
 					<div>
 						<button
-							className="bg-transparent hover:bg-slate-50 text-slate-50 font-semibold hover:text-slate-600 py-2 px-4 border border-slate-50 hover:border-transparent rounded"
+							className="login-button"
 							onClick={() => signIn()}
 						>
 							Sign in
