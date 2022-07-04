@@ -27,19 +27,18 @@ const Home: NextPage = () => {
 					)}
 					<h2 className="text-2xl text-center">Comming Soon...</h2>
 				</div>
+				{session.status === "authenticated" ? (
+					<div>
+						<p className="text-center">
+							{" "}
+							You are logged in as {JSON.stringify(session?.data)}
+						</p>
+						<button onClick={() => signOut()}>Sign out</button>
+					</div>
+				) : (
+					<button onClick={() => signIn()}>Sign in</button>
+				)}
 			</div>
-
-			{session ? (
-				<div>
-					<p className="text-center">
-						{" "}
-						You are logged in as {JSON.stringify(session?.data)}
-					</p>
-					<button onClick={() => signOut()}>Sign out</button>
-				</div>
-			) : (
-				<button onClick={() => signIn()}>Sign in</button>
-			)}
 		</>
 	);
 };
