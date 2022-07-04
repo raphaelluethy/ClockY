@@ -30,9 +30,9 @@ const Home: NextPage = () => {
 				</div>
 				<div className="py-6  text-slate-50">
 					{getAll.data ? (
-						<h1 className="text-4xl">
-							{JSON.stringify(getAll.data)}
-						</h1>
+						<h2 className="text-4xl">
+							Current Users: {getAll.data.length}
+						</h2>
 					) : (
 						<p>Loading..</p>
 					)}
