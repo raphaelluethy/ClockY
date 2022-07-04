@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from Clocky" }]);
+	const getAll = trpc.useQuery(["example.getAll"]);
 	const { data: session, status } = useSession();
 
 	return (
@@ -26,6 +27,15 @@ const Home: NextPage = () => {
 						<p>Loading..</p>
 					)}
 					<h2 className="text-2xl">Comming Soon...</h2>
+				</div>
+				<div className="py-6  text-slate-50">
+					{getAll.data ? (
+						<h1 className="text-4xl">
+							{JSON.stringify(getAll.data)}
+						</h1>
+					) : (
+						<p>Loading..</p>
+					)}
 				</div>
 				{!!session ? (
 					<div className="text-slate-50">
