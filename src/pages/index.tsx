@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from Clocky" }]);
 	const getAll = trpc.useQuery(["example.getAll"]);
+	const kiss = trpc.useQuery(["example.gimmeAKiss"]);
 	const { data: session, status } = useSession();
 
 	return (
